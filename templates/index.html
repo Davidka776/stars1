@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telegram Mini App - Капча</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="welcome-text">
+        <h2>Добро пожаловать!</h2>
+        <p>Пожалуйста, выберите этот эмодзи: <span class="emoji-display">{{ correct_emoji }}</span></p>
+    </div>
+    
+    <div class="emoji-grid">
+        {% for emoji in emojis %}
+        <button class="emoji-button" onclick="verifyEmoji('{{ emoji }}')">{{ emoji }}</button>
+        {% endfor %}
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

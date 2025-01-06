@@ -1,0 +1,29 @@
+.emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.emoji-button {
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: none;
+}
+
+.welcome-text {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.emoji-display {
+    font-size: 24px;
+    padding: 4px 8px;
+    background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0 4px;
+} 

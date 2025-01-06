@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реферальная система</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="user_id" content="{{ user_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/referral.css') }}">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="content">
+        <!-- Реферальная ссылка -->
+        <div class="referral-link-card">
+            <div class="card-header">Ваша реферальная ссылка</div>
+            <div class="link-container">
+                <input type="text" class="link-input" value="https://t.me/{{ bot_username }}?start={{ referral_code }}" readonly>
+                <button class="copy-button" onclick="copyReferralLink()">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="reward-info">
+                Приглашайте друзей и получайте {{ referral_reward }} {{ currency_name }} за каждого!
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-card">
+            <div class="stats-item">
+                <div class="stats-label">Всего рефералов</div>
+                <div class="stats-value">{{ total_referrals }}</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-label">Общий заработок</div>
+                <div class="stats-value">{{ total_earnings }} {{ currency_name }}</div>
+            </div>
+        </div>
+
+        <!-- Список рефералов -->
+        <div class="referrals-list">
+            <div class="list-header">Ваши рефералы</div>
+            {% if referrals %}
+                {% for referral in referrals %}
+                <div class="referral-item">
+                    <div class="referral-info">
+                        <div class="referral-name">{{ referral.first_name }}</div>
+                        <div class="referral-date">{{ referral.date }}</div>
+                    </div>
+                    <div class="referral-reward">+{{ referral.reward }} {{ currency_name }}</div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <div class="empty-icon">👥</div>
+                    <div class="empty-text">У вас пока нет рефералов</div>
+                    <div class="empty-subtext">Пригласите друзей и получайте награду</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <nav class="bottom-menu">
+        <div class="menu-item" onclick="navigateTo('tasks')">
+            <div class="icon">📋</div>
+            <div class="label">Задания</div>
+        </div>
+        <div class="menu-item" onclick="navigateTo('referral')">
+            <div class="icon">👥</div>
+            <div class="label">Рефералка</div>
+        </div>
+        <div class="menu-item" onclick="navigateTo('wallet')">
+            <div class="icon">💰</div>
+            <div class="label">Кошелёк</div>
+        </div>
+        <div class="menu-item" onclick="navigateTo('fortune')">
+            <div class="icon">🎲</div>
+            <div class="label">Фортуна</div>
+        </div>
+        <div class="menu-item" onclick="navigateTo('exchange')">
+            <div class="icon">📊</div>
+            <div class="label">Биржа</div>
+        </div>
+    </nav>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="{{ url_for('static', filename='js/referral.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--tg-theme-bg-color, #fff);
+    color: var(--tg-theme-text-color, #000);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+/* Карточка статистики */
+.stats-card {
+    background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.stats-item {
+    text-align: center;
+}
+
+.stats-label {
+    font-size: 14px;
+    color: var(--tg-theme-hint-color, #999);
+    margin-bottom: 4px;
+}
+
+.stats-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--tg-theme-text-color, #000);
+}
+
+/* Список рефералов */
+.referrals-list {
+    background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.list-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+.referral-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--tg-theme-bg-color, #fff);
+    margin-bottom: 8px;
+}
+
+.referral-info {
+    flex: 1;
+}
+
+.referral-name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.referral-date {
+    font-size: 12px;
+    color: var(--tg-theme-hint-color, #999);
+}
+
+.referral-reward {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--tg-theme-button-color, #2481cc);
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.empty-subtext {
+    font-size: 14px;
+    color: var(--tg-theme-hint-color, #999);
+}
+
+/* Нижнее меню (наследуется из tasks.css) */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--tg-theme-bg-color, #fff);
+    border-top: 1px solid var(--tg-theme-hint-color, #ccc);
+    padding: 8px 4px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.menu-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    min-width: 56px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    color: var(--tg-theme-text-color, #000);
+}
+
+.menu-item:active {
+    opacity: 0.7;
+}
+
+.icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.label {
+    font-size: 11px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Безопасная зона для iPhone X и новее */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .bottom-menu {
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Карточка реферальной ссылки */
+.referral-link-card {
+    background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.link-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.link-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--tg-theme-hint-color, #ccc);
+    border-radius: 8px;
+    background-color: var(--tg-theme-bg-color, #fff);
+    color: var(--tg-theme-text-color, #000);
+    font-size: 14px;
+    outline: none;
+    cursor: text;
+    user-select: all;
+}
+
+.copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--tg-theme-button-color, #2481cc);
+    color: var(--tg-theme-button-text-color, #fff);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.copy-button:active {
+    opacity: 0.7;
+}
+
+.copy-icon {
+    font-size: 20px;
+}
+
+.reward-info {
+    font-size: 14px;
+    color: var(--tg-theme-hint-color, #999);
+    text-align: center;
+}
+
+/* Уведомление о копировании */
+.copy-notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--tg-theme-bg-color, #fff);
+    color: var(--tg-theme-text-color, #000);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.copy-notification.show {
+    top: 20px;
+} 
